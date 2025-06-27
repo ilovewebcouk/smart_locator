@@ -86,7 +86,7 @@ async function initMap() {
     // Inside your initMap (make it async):
     const res     = await fetch('https://smart-locator.netlify.app/.netlify/functions/locations'
     );
-    const geojson  = await response.json();
+    const geojson  = await res.json();
     map.data.addGeoJson(geojson);
 
     // 3. Style each feature’s marker icon by category (with fallback)
