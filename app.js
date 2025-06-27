@@ -90,7 +90,7 @@ function initMap() {
     // 3. Style each feature’s marker icon by category (with fallback)
     map.data.setStyle(feature => ({
         icon: {
-            url: `https://cdn.jsdelivr.net/gh/ilovewebcouk/smart_locator@main/img/icon_${feature.getProperty('category') || 'default'}.png`,
+            url: `https://cdn.jsdelivr.net/gh/ilovewebcouk/smart_locator/img/icon_${feature.getProperty('category') || 'default'}.png`,
             scaledSize: new google.maps.Size(50, 60),
         },
         // ensure the feature responds to clicks
