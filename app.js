@@ -75,7 +75,7 @@ const mapStyle = [{
     },
 ];
 
-function initMap() {
+async function initMap() {
     // 1. Create the map
     const map = new google.maps.Map(document.getElementById('map'), {
         zoom: 7,
@@ -83,9 +83,10 @@ function initMap() {
         styles: mapStyle,
     });
 
-    // 2. Load live GeoJSON from your Cloud Function proxy
-    const proxyUrl ='https://europe-west1-smart-dog-training-463213.cloudfunctions.net/webflowToGeoJSON';
-    map.data.loadGeoJson(proxyUrl, { idPropertyName: 'storeid' });
+    // Inside your initMap (make it async):
+    const response = await fetch('http://localhost:3000/api/locations');
+    const geojson  = await response.json();
+    map.data.addGeoJson(geojson);
 
     // 3. Style each feature’s marker icon by category (with fallback)
     map.data.setStyle(feature => ({
@@ -108,6 +109,11 @@ function initMap() {
         const address  = event.feature.getProperty('address');
         const imageUrl = event.feature.getProperty('image');
         const category = event.feature.getProperty('category');
+        const slug     = event.feature.getProperty('slug')
+
+        // Build slug path
+
+        const detailsUrl = `https://smartdogtraining.com/venues/${slug}`
 
         // pick the logo
         const logoUrl = category === 'Trainer'
@@ -156,6 +162,22 @@ function initMap() {
         alt="${name}"
         style="width:100%; max-height:180px; object-fit:cover;"
       >
+      
+     <!-- Buttun> -->
+     <a 
+          href="${detailsUrl}"
+          style="
+            display:inline-block;
+            padding:8px 16px;
+            background:#0762ab;
+            color:#fff;
+            text-decoration:none;
+            border-radius:4px;
+            font-size:14px;
+          "
+        >
+          View Details
+        </a>
     </div>
     `;
 
