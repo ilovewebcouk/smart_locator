@@ -92,7 +92,7 @@ async function initMap() {
     // 3. Style each feature’s marker icon by category (with fallback)
     map.data.setStyle(feature => ({
         icon: {
-            url: `https://cdn.jsdelivr.net/gh/ilovewebcouk/smart_locator@main/img/icon_${feature.getProperty('category') || 'default'}.png`,
+            url: `https://smart-locator.netlify.app/img/icon_${feature.getProperty('category') || 'default'}.png`,
             scaledSize: new google.maps.Size(50, 60),
         },
         // ensure the feature responds to clicks
@@ -118,8 +118,8 @@ async function initMap() {
 
         // pick the logo
         const logoUrl = category === 'Trainer'
-            ? 'https://cdn.jsdelivr.net/gh/ilovewebcouk/smart_locator/img/logo_Trainer.svg'
-            : 'https://cdn.jsdelivr.net/gh/ilovewebcouk/smart_locator/img/logo_University.svg';
+            ? 'https://smart-locator.netlify.app/img/logo_Trainer.svg'
+            : 'https://smart-locator.netlify.app/img/logo_University.svg';
 
         // Build header + body
         const content = `
