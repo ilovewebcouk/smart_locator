@@ -141,44 +141,35 @@ async function initMap() {
         <div
           id="iw-close-btn"
           style="
-            font-size:24px;
-            line-height:24px;
+            font-size:30px;
+            line-height:16px;
             cursor:pointer;
             user-select:none;
+            color: #70757a;
           "
         >&times;</div>
       </div>
 
-      <!-- Body text -->
-      <h2 style="margin:0 0 6px; font-size:18px;">${name}</h2>
-      <p style="margin:0 0 8px; font-size:14px; color:#333;">${excerpt}</p>
-      <p style="margin:0 0 12px; font-size:12px; color:#555;"><i>${address}</i></p>
+      <!-- Link to venue page -->
+      <a href="${detailsUrl}">
+        <!-- Body text -->
+        <h2 style="margin:0 0 6px; font-size:18px;">${name}</h2>
+        <p style="margin:0 0 8px; font-size:14px; color:#333;">${excerpt}</p>
+        <p style="margin:0 0 12px; font-size:12px; color:#555;"><i>${address}</i></p>
 
-      <!-- Divider -->
-      <hr style="border:none; border-top:1px solid #ddd; margin:0 0 8px;">
+        <!-- Divider -->
+        <hr style="border:none; border-top:1px solid #ddd; margin:0 0 8px;">
 
-      <!-- Main image at bottom -->
-      <img
+        <!-- Main image at bottom -->
+        <img
         src="${imageUrl}"
         alt="${name}"
         style="width:100%; max-height:180px; object-fit:cover;"
-      >
+        >     
+      </a>
       
-     <!-- Buttun> -->
-     <a 
-          href="${detailsUrl}"
-          style="
-            display:inline-block;
-            padding:8px 16px;
-            background:#0762ab;
-            color:#fff;
-            text-decoration:none;
-            border-radius:4px;
-            font-size:14px;
-          "
-        >
-          View Details
-        </a>
+      
+     
     </div>
     `;
 
