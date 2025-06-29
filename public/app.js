@@ -114,7 +114,7 @@ async function initMap() {
 
         // Build slug path
 
-        const detailsUrl = `https://smartdogtraining.com/venues/${slug}`
+        const detailsUrl = `https://smartdogtraining.com/university/venues/${slug}`
 
         // pick the logo
         const logoUrl = category === 'Trainer'
